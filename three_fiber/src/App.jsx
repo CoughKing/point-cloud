@@ -1,5 +1,15 @@
 import {Canvas} from '@react-three/fiber'
 
+const Cube = ({position, size, color}) => {
+  return (
+    <mesh position={position}>
+            <boxGeometry args={size}/>
+            <meshStandardMaterial color={color}  />
+          </mesh>
+  )
+}
+
+
 
 function App() {
   
@@ -8,14 +18,15 @@ function App() {
     
       
       <>
-      <div className="flex f">
+      <div className="h-screen flex items-center justify-center">
         <Canvas >
-          <ambientLight intensity={0.1}/>
-          <directionalLight color = "red" postion={[0,0,5]}/>
-          <mesh>
-            <boxGeometry args={[4,4,4]}/>
-            <meshStandardMaterial />
-          </mesh>
+          {/* <ambientLight intensity={8}/> */}
+          <directionalLight  position={[0,0,2]}/>
+          <Cube position={[1,0,0]} color="red"/>
+          <Cube position={[-1,0,0]}  size={[1,1,1]}color="blue"/>
+          <Cube position={[1,2,0]} color="yellow"/>
+          <Cube position={[-1,2,0]} color="green"/>
+
         </Canvas>
       </div>
     </>
