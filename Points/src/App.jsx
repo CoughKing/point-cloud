@@ -1,31 +1,22 @@
 import { OrbitControls } from "@react-three/drei";
-import { Canvas } from '@react-three/fiber';
+import { Canvas } from "@react-three/fiber";
 
-
-
-
+import Pcloud from "./components/Pcloud";
 
 function App() {
   return (
-    <div className='App'>
-      <Canvas
-        camera={{
-          fov: 75,
-          aspect: 2,
-          near: 0.1,
-          far: 1000,
-          position: [0,0,20],
-          rotation: [0,0,0]
-        }}
-      >               
-        <Points/> 
-               
-        <OrbitControls/>
+    <div className="h-screen flex items-center justify-center">
+      <Canvas>
+        <Pcloud
+          rotation={[Math.PI, 0, 0]}
+          material-size={0.001}
+          material-color="red"
+        />
+
+        <OrbitControls />
       </Canvas>
     </div>
-  )
-
+  );
 }
 
-
-export default App
+export default App;
